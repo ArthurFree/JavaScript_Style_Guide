@@ -1,2 +1,40 @@
-# JavaScript_Style_Guide
-Airbnb JavaScript Style Guide(中文版)
+# JavaScript Style Guide
+
+## 目录
+
+1. 类型(Types)
+1. 引用(References)
+1. 对象(Objects)
+1. 数组(Arrays)
+1. (Destructuring)
+1. 字符串(String)
+1. 函数(Functions)
+1. 箭头函数(Arrow Functions)
+1. 类 & Constructors方法(classes & Constructors)
+1. (Modules)
+1. (Lterators and Generators)
+1. (Properties)
+1. (Variables)
+1. (Hoisting)
+1. (Comparison Operators & Equality)
+1. (Blocks)
+1. (Control Statements)
+1. (Comments)
+1. (Whitespace)
+1. (Commas)
+1. (Semicolons)
+1. (Type Casting & Coercion)
+1. (Naming Conventions)
+1. (Accessors)
+1. (Events)
+1. (jQuery)
+1. (ECMAScript 5 Compatibility)
+1. (ECMAScript 6 + (ES 2015+) Styles)
+1. (Testing)
+1. (Performance)
+1. (Resources)
+1. (In the Wild)
+1. (Translation)
+1. (The JavaScript Style Guide)
+
+## 类型
