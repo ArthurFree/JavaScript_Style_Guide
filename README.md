@@ -458,3 +458,76 @@
 
     const { left, top } = processInput(input);
     ```
+
+## 字符串
+
+-   字符串使用单引号(`''`).eslint规则：`quotes`,jscs:`validateQuoteMarks`
+
+    ```
+    // bad
+    const name = "Capt. Janeway";
+
+    // bad - 模板字符串应该包含插值或者换行
+    const name = `Capt. Janeway`;
+
+    // good
+    const name = 'Capt. Janeway';
+    ```
+
+-   字符串一行超过100个字符时不应该使用字符串连接写成多行
+    > 为什么？散碎的字符串书写麻烦并且降低了代码的可搜索性
+
+    ```
+    // bad
+    const errorMessage = 'This is a super long error that was thrown because \
+    of Batman. When you stop to think about how Batman had anything to do \
+    with this, you would get nowhere \
+    fast.';
+
+    // bad
+    const errorMessage = 'This is a super long error that was thrown because ' +
+        'of Batman. When you stop to think about how Batman had anything to do ' +
+        'with this, you would get nowhere fast.';
+
+    // good
+    const errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
+    ```
+
+-   当以编程的方式构建字符串时，使用模板字符串代替字符串拼接.eslint规则：`perfer-template`、`template-curly-spacing`,jscs:`requireTemplateStrings`
+    > 为什么？模板字符串更易读，恰当的换行与字符串插值使语法更简洁
+
+    ```
+    // bad
+    function sayHi(name) {
+        return 'How are you,' + name + '?';
+    }
+
+    // bad
+    function sayHi(name) {
+        return ['How are you,', name, '?'].join();
+    }
+
+    // bad
+    function sayHi(name) {
+        retrun `How are you, ${ name }`;
+    }
+
+    // good
+    function sayHi(name) {
+        return `How are you, ${name}`;
+    }
+    ```
+
+-   永远不要在字符串上使用`eval()`，它会导致很多的漏洞.eslint规则：`no-eval`
+
+-   在字符串中不要出现没有必要的转义字符串.eslint规则：`no-useless-escape`
+    > 为什么？反斜杠降低了代码的可读性，所以应该只在必要的时候使用
+
+    ```
+    // bad
+    const foo = '\'this\' \i\s \"quoted\"'
+
+    // good
+    const foo = '\'this\' is "quoted"';
+    const foo = `my name is '${name}'`;
+    ```
