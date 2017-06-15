@@ -190,7 +190,7 @@
 
     ```javascript
     const anakinSkywalker = 'Anakin Skywalker';
-    const lukeSkywalker = 'Luke Skywalker;
+    const lukeSkywalker = 'Luke Skywalker';
 
     // bad
     const obj = {
@@ -219,8 +219,8 @@
     ```javascript
     // bad
     const bad = {
-        'foo: 3,
-        'bar: 4,
+        'foo': 3,
+        'bar': 4,
         'data-blah: 5,
     };
 
@@ -463,7 +463,7 @@
 
 -   字符串使用单引号(`''`).eslint规则：`quotes`,jscs:`validateQuoteMarks`
 
-    ```
+    ```javascript
     // bad
     const name = "Capt. Janeway";
 
@@ -477,7 +477,7 @@
 -   字符串一行超过100个字符时不应该使用字符串连接写成多行
     > 为什么？散碎的字符串书写麻烦并且降低了代码的可搜索性
 
-    ```
+    ```javascript
     // bad
     const errorMessage = 'This is a super long error that was thrown because \
     of Batman. When you stop to think about how Batman had anything to do \
@@ -496,7 +496,7 @@
 -   当以编程的方式构建字符串时，使用模板字符串代替字符串拼接.eslint规则：`perfer-template`、`template-curly-spacing`,jscs:`requireTemplateStrings`
     > 为什么？模板字符串更易读，恰当的换行与字符串插值使语法更简洁
 
-    ```
+    ```javascript
     // bad
     function sayHi(name) {
         return 'How are you,' + name + '?';
@@ -523,7 +523,7 @@
 -   在字符串中不要出现没有必要的转义字符串.eslint规则：`no-useless-escape`
     > 为什么？反斜杠降低了代码的可读性，所以应该只在必要的时候使用
 
-    ```
+    ```javascript
     // bad
     const foo = '\'this\' \i\s \"quoted\"'
 
