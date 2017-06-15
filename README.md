@@ -2,13 +2,13 @@
 
 ## 目录
 
-1. [类型](#类型)(Types)
-2. [引用](#引用)(References)
-3. [对象](#对象)(Objects)
-4. [数组](#数组)(Arrays)
-5. [解构](#解构)(Destructuring)
-6. [字符串](#字符串)(String)
-7. [函数](#函数)(Functions)
+1. [类型(Types)](#类型)
+2. [引用(References)](#引用)
+3. [对象(Objects)](#对象)
+4. [数组(Arrays)](#数组)
+5. [解构(Destructuring)](#解构)
+6. [字符串(String)](#字符串)
+7. [函数(Functions)](#函数)
 8. 箭头函数(Arrow Functions)
 9. 类 & Constructors方法(classes & Constructors)
 10. 模块(Modules)
