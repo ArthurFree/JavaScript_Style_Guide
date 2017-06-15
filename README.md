@@ -245,3 +245,123 @@
 
     const { a, ...noA } = copy; // noA => { b: 2, c: 3 }
     ```
+
+## 数组
+
+-   使用字面量语法来创建数组.eslint规则：`no-array-constructor`
+    ```
+    // bad
+    const item = new Array()
+
+    // good
+    const item = [];
+    ```
+-   使用数组的`push`方法代替直接在数组中为某一项通过赋值方法进行添加操作
+    ```
+    const someStack = [];
+
+    // bad
+    someStack[someStack.length] = 'abracadabra';
+
+    // good
+    someStack.push('abracadabra');
+    ```
+-   使用数组扩展操作符(`...`)复制数组
+    ```
+    // bad
+    const len = item.length;
+    const itemCopy = [];
+    let i;
+
+    for (i = 0; i < len; i += 1) {
+        itemCopy[i] = items[i];
+    }
+
+    // good
+    const itemsCopy = [...item];
+    ```
+-   转换类数组对象成数组，使用`Array.from`
+    ```
+    const foo = document.querySleectorAll('.foo');
+    const nodes = Array.from(foo);
+    ```
+-   在数组方法的回调函数中使用`return`语句.如果函数体返回一个由一个简单语句组成没有副作用的表达式，可以省略`return`, 参考8.2, eslint规则：`array-callback-return`
+    ```
+    // good
+    [1, 2, 3].map((x) => {
+        const y = x + 1;
+        return x * y;
+    });
+
+    // good
+    [1, 2, 3].map(x => x + 1);
+
+    // bad
+    const flat = {};
+    [[0, 1], [2, 3], [4, 5]].reduce((memo, item, index) => {
+        const flatten = memo.concat(item);
+        flat[index] = flatten;
+    });
+
+    // good
+    const flat = {};
+    [[0, 1], [2, 3], [4, 5]].reduce((memo, item, index) => {
+        const flatten = memo.concat(item);
+        flat[index] = flatten;
+        return flatten
+    });
+
+    // bad
+    inbox.filter((msg) => {
+        const { subject, author } = msg;
+        if (subject === 'Mockingbird') {
+            return author === 'Harper Lee';
+        } else {
+            return false;
+        }
+    });
+
+    // good
+    inbox.filter((msg) => {
+        const { subject, author } = msg;
+        if (subject === 'Mockingbird') {
+            return author === 'Harper Lee';
+        }
+
+        return false;
+    });
+    ```
+-   如果数组有多行，在数组开括号后面，闭括号前面换行
+    ```
+    // bad
+    const arr = [
+        [0, 1], [2, 3], [4, 5],
+    ];
+
+    const objectInArray = [{
+        id: 1,
+    }, {
+        id: 2,
+    }];
+
+    const numberInArray = [
+        1, 2,
+    ];
+
+    // good
+    const arr = [[0, 1], [2, 3], [4, 5]];
+
+    const objectInArray = [
+        {
+            id: 1,
+        },
+        {
+            id: 2,
+        },
+    ];
+
+    const numberInArray = [
+        1,
+        2,
+    ];
+    ```
