@@ -45,7 +45,8 @@
     -   `boolean`
     -   `null`
     -   `undefined`
-    ```
+
+    ```javascript
     const foo = 1;
     let bar = foo;
 
@@ -53,11 +54,13 @@
 
     console.log(foo, bar); // => 1, 9
     ```
+
 -   复杂类型值：当你存取一个复杂类型时，你操作的是它的值得引用
     -   `object`
     -   `array`
     -   `function`
-    ```
+
+    ```javascript
     const foo = [1, 2];
     const bar = foo;
 
@@ -70,7 +73,8 @@
 
 -   为你的所有的引用使用`const`；避免使用`var`,eslint规则：`perfer-const`,`no-const-assign`
     > 为什么？确保你不会重新赋值你的引用，导致出现bug和难以理解的代码
-    ```
+
+    ```javascript
     // bad
     var a = 1;
     var b = 2;
@@ -79,9 +83,11 @@
     const a = 1;
     const b = 2;
     ```
+
 -   如果必须重新赋值引用，使用`let`来代替`var`,eslint规则：`no-var`, jscs:`disallowVar`
     > 为什么？`let`是块作用域而不是像`var`一样是函数作用域
-    ```
+
+    ```javascript
     // bad
     var count = 1;
     if (true) {
@@ -94,8 +100,10 @@
         count += 1;
     }
     ```
+
 -   注意`let`和`const`都是块级作用域
-    ```
+
+    ```javascript
     // const 和 let 只存在于定义他们的块内部
     {
         let a = 1;
@@ -108,16 +116,19 @@
 ## 对象
 
 -   使用字面量语法来创建对象, eslint规则：`no-new-object`
-    ```
+
+    ```javascript
     // bad
     const item = new Object();
 
     // good
     const item = {};
     ```
+
 -   当创建有动态属性的名称的对象时，使用计算属性
     > 为什么？这样允许你在一个地方定义此对象所有的属性
-    ```
+
+    ```javascript
     function getKey(k) {
         return `a Key named ${k}`;
     }
@@ -136,8 +147,10 @@
         [getKey('enabled')]: true,
     };
     ```
+
 -   使用对象方法简写,eslint规则：`object-shorthand`,jscs:`requireEnhancedObjectLiterals`
-    ```
+
+    ```javascript
     // bad
     const atom = {
         value: 1,
@@ -154,9 +167,11 @@
         },
     };
     ```
+
 -   使用属性值简写,eslint规则：`object-shorthand`,jscs:`requireEnhancedObjectLiterals`
     > 为什么？书写和描述更短
-    ```
+
+    ```javascript
     const lukeSkywalker = 'Luke Skywalker';
 
     // bad
@@ -169,9 +184,11 @@
         lukeSkywalker,
     };
     ```
+
 -   将所有使用简写方法的属性名放在一起，并放在声明的对象的最上面
     > 为什么？这样更容易说明哪些属性使用了简写
-    ```
+
+    ```javascript
     const anakinSkywalker = 'Anakin Skywalker';
     const lukeSkywalker = 'Luke Skywalker;
 
@@ -195,9 +212,11 @@
         mayTheFourth: 4,
     };
     ```
+
 -   只对无效标识符使用单引号,eslint规则：`quote-props`,jscs:`disallowQuoteKeysInObjects`
     > 为什么？通常，我们认为它主观上更易读.它增强了语法高亮，并且更容易被js引擎优化
-    ```
+
+    ```javascript
     // bad
     const bad = {
         'foo: 3,
@@ -212,9 +231,11 @@
         'data-blah: 5,
     };
     ```
+
 -   不要直接调用`Object.prototype`的方法，例如`hasOwnProperty`,`propertyIsEnumerable`,and `isPrototypeOf`.
     > 为什么？这些方法可能被当前对象上的属性所覆盖 - 考虑 `{ hasOwnProperty: false }` - 或者，当此对象是 `null`时(`Object.create(null)`)
-    ```
+
+    ```javascript
     // bad
     console.log(object.hasOwnProperty(key));
 
@@ -228,8 +249,10 @@
     // ...
     console.log(has.call(object, key));
     ```
+
 -   使用对象扩展操作符(`{...}`)来代替`Object.assign`实现浅拷贝。使用对象的取余操作符来得到一个新的对象使某些属性省略
-    ```
+
+    ```javascript
     // very bad
     const original = { a: 1, b: 2 };
     const copy = Object.assign(original, { c: 3 });
@@ -249,15 +272,18 @@
 ## 数组
 
 -   使用字面量语法来创建数组.eslint规则：`no-array-constructor`
-    ```
+
+    ```javascript
     // bad
     const item = new Array()
 
     // good
     const item = [];
     ```
+
 -   使用数组的`push`方法代替直接在数组中为某一项通过赋值方法进行添加操作
-    ```
+
+    ```javascript
     const someStack = [];
 
     // bad
@@ -266,8 +292,10 @@
     // good
     someStack.push('abracadabra');
     ```
+
 -   使用数组扩展操作符(`...`)复制数组
-    ```
+
+    ```javascript
     // bad
     const len = item.length;
     const itemCopy = [];
@@ -280,13 +308,17 @@
     // good
     const itemsCopy = [...item];
     ```
+
 -   转换类数组对象成数组，使用`Array.from`
-    ```
+
+    ```javascript
     const foo = document.querySleectorAll('.foo');
     const nodes = Array.from(foo);
     ```
+
 -   在数组方法的回调函数中使用`return`语句.如果函数体返回一个由一个简单语句组成没有副作用的表达式，可以省略`return`, 参考8.2, eslint规则：`array-callback-return`
-    ```
+
+    ```javascript
     // good
     [1, 2, 3].map((x) => {
         const y = x + 1;
@@ -331,8 +363,10 @@
         return false;
     });
     ```
+
 -   如果数组有多行，在数组开括号后面，闭括号前面换行
-    ```
+
+    ```javascript
     // bad
     const arr = [
         [0, 1], [2, 3], [4, 5],
@@ -364,4 +398,63 @@
         1,
         2,
     ];
+    ```
+
+## 解构
+
+-   当在一个对象中存取和使用多个属性时，使用对象解构.jscs:`requireObjectDestructuring`
+    > 为什么？解构可以保存你为这些属性创建的临时引用
+
+    ```javascript
+    // bad
+    function getFullName(user) {
+        const firstName = user.firstName;
+        const lastName = user.lastName;
+
+        return `${firstName}${lastName}`;
+    }
+
+    // good
+    function getFullName(user) {
+        const { firstName, lastName } = user;
+
+        return `${firstName}${lastName}`;
+    }
+
+    // best
+    function getFullName({ firstName, lastName }) {
+        return `${firstName}${lastName}`;
+    }
+    ```
+
+-   使用数组结构.jscs:`requireArrayDestructuring`
+
+    ```javascript
+    const arr = [1, 2, 3, 4];
+
+    // bad
+    const first = arr[0];
+    coinst second = arr[1];
+
+    // good
+    const [first, second] = arr;
+    ```
+
+-   对多个返回值使用对象解构，而不用数组结构.jscs:`disallowArrayDestructuringReturn`
+    > 为什么？在以后你可以添加新的属性或者改变顺序而不会打断其调用的地方
+
+    ```javascript
+    // bad
+    function processInput(input) {
+        return [left, right, top, bottom];
+    }
+
+    const [left, __, top] = processInput(input);
+
+    // good
+    function processInput(input) {
+        return { left, right, top, bottom };
+    }
+
+    const { left, top } = processInput(input);
     ```
