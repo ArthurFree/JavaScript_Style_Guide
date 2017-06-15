@@ -2,13 +2,13 @@
 
 ## 目录
 
-1. 类型(Types)
-2. 引用(References)
-3. 对象(Objects)
-4. 数组(Arrays)
-5. (Destructuring)
-6. 字符串(String)
-7. 函数(Functions)
+1. [类型](#类型)(Types)
+2. [引用](#引用)(References)
+3. [对象](#对象)(Objects)
+4. [数组](#数组)(Arrays)
+5. [解构](#解构)(Destructuring)
+6. [字符串](#字符串)(String)
+7. [函数](#函数)(Functions)
 8. 箭头函数(Arrow Functions)
 9. 类 & Constructors方法(classes & Constructors)
 10. 模块(Modules)
@@ -23,7 +23,7 @@
 19. 空白(Whitespace)
 20. 逗号(Commas)
 21. 分号(Semicolons)
-22. 类型转化 & 强制 (Type Casting & Coercion)
+22. 类型转化 & 强制(Type Casting & Coercion)
 23. 命名规则(Naming Conventions)
 24. 存取器(Accessors)
 25. 事件(Events)
@@ -531,3 +531,4 @@
     const foo = '\'this\' is "quoted"';
     const foo = `my name is '${name}'`;
     ```
+## 函数
